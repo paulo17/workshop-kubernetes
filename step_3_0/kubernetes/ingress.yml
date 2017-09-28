@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: eleven
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: "nginx.##YOUR_IP##.nip.io"
+    http:
+      paths:
+      - backend:
+          serviceName: nginx-service
+          servicePort: 80

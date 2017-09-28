@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "fullname" . }}
+  namespace: {{ .Values.namespace }}
+spec:
+  replicas: {{ default 1 .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "fullname" . }}
+    spec:
+      containers:
+      - name: nginx
+        image: {{ .Values.nginx.image }}:{{ .Values.nginx.tag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+      - name: php
+        image: {{ .Values.php.image }}:{{ .Values.php.tag }}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 9000

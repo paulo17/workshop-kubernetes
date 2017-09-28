@@ -1,0 +1,11 @@
+nginx:
+  image: ouite/eleven-k8s-workshop-nginx
+  tag: 'latest'
+
+php:
+  image: ouite/eleven-k8s-workshop-php
+  tag: 'latest'
+
+replicas: 3
+namespace: eleven
+host: "project.192.168.99.103.nip.io"

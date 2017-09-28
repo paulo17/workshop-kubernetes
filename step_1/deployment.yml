@@ -1,0 +1,16 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: ##DEPLOYMENT-NAME##
+spec:
+  replicas: ##NUMBER-REPLICAS##
+  template:
+    metadata:
+      labels:
+        app: ##APPNAME##
+    spec:
+      containers:
+      - name: ##NAME##
+        image: ##IMAGE-DOCKER##
+        ports:
+        - containerPort: ##CONTAINER-PORT##

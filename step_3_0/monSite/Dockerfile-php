@@ -1,0 +1,8 @@
+FROM php:7.1-fpm-alpine
+
+WORKDIR /build
+
+COPY . /build
+
+EXPOSE 9000
+CMD ["php-fpm"]
